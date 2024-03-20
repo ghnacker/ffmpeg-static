@@ -53,9 +53,9 @@ const proxyUrl = (
   process.env.http_proxy
 )
 if (proxyUrl) {
-  const HttpsProxyAgent = require('https-proxy-agent')
-  const {hostname, port, protocol} = new URL(proxyUrl)
-  agent = new HttpsProxyAgent({hostname, port, protocol})
+  const {HttpsProxyAgent} = require('https-proxy-agent')
+  // const {hostname, port, protocol} = new URL(proxyUrl)
+  agent = new HttpsProxyAgent(proxyUrl)
 }
 
 // https://advancedweb.hu/how-s3-signed-urls-work/
